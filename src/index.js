@@ -11,48 +11,7 @@ function App() {
         {/* Should contain one Skill component
         for each web dev skill that you have,
         customized with props */}
-        <SkillList
-          style={{
-            backgroundColor: "#1a75ff",
-            border: "none",
-          }}
-          skill={[{ name: "HTML + CSS", emoji: "👍" }]}
-        />
-        <SkillList
-          style={{
-            backgroundColor: "#ffff00",
-            border: "none",
-          }}
-          skill={[{ name: "JavaScript", emoji: "🔥" }]}
-        />
-        <SkillList
-          style={{
-            backgroundColor: "#669999",
-            border: "none",
-          }}
-          skill={[{ name: "Web Design", emoji: "💪🏻" }]}
-        />
-        <SkillList
-          style={{
-            backgroundColor: "#ff0000",
-            border: "none",
-          }}
-          skill={[{ name: "Git and GitHub", emoji: "💪🏻" }]}
-        />
-        <SkillList
-          style={{
-            backgroundColor: "skyBlue",
-            border: "none",
-          }}
-          skill={[{ name: "React", emoji: "💪🏻" }]}
-        />
-        <SkillList
-          style={{
-            backgroundColor: "#ff6600",
-            border: "none",
-          }}
-          skill={[{ name: "Graphic Design", emoji: "💪🏻" }]}
-        />
+        <SkillList />
       </div>
     </div>
   );
@@ -78,15 +37,26 @@ function Intro() {
   );
 }
 
-function SkillList(props) {
+function SkillList() {
   return (
     <div className="skill-list">
-      <button style={props.style} className="skill">
-        {props.skill[0].name} {props.skill[0].emoji}
-      </button>
+      <Skill name="HTML + CSS" emoji="💪" color="#1a53ff" />
+      <Skill name="JavaScript" emoji="🔥" color="#ffd11a" />
+      <Skill name="Web Design" emoji="💪" color="#bdc99c" />
+      <Skill name="Git and GitHub" emoji="👍" color="#cc0000" />
+      <Skill name="React" emoji="💥" color="#66c2ff" />
+      <Skill name="Graphics Design" emoji="🥰" color="#ff5e1a" />
     </div>
   );
-  // Add more skills as needed
+}
+
+function Skill(props) {
+  return (
+    <div className="skill" style={{ backgroundColor: props.color }}>
+      <span>{props.name}</span>
+      <span>{props.emoji}</span>
+    </div>
+  );
 }
 
 const rootElement = document.getElementById("root");
